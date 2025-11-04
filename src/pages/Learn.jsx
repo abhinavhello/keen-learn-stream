@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Play, Pause, FileText, HelpCircle, Settings } from 'lucide-react';
+import { FileText, HelpCircle } from 'lucide-react';
 import { mockCourses } from '@/lib/mockData';
 
 export default function Learn() {

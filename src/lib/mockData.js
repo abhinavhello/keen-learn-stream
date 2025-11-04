@@ -1,6 +1,4 @@
-import { Course } from '@/types';
-
-export const mockCourses: Course[] = [
+export const mockCourses = [
   {
     id: '1',
     title: 'Complete Web Development Bootcamp',

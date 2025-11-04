@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { CourseCard } from '@/components/CourseCard';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Search, Filter, X } from 'lucide-react';
@@ -10,9 +9,9 @@ import { mockCourses } from '@/lib/mockData';
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [difficulty, setDifficulty] = useState<string>('all');
-  const [sortBy, setSortBy] = useState<string>('rating');
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [difficulty, setDifficulty] = useState('all');
+  const [sortBy, setSortBy] = useState('rating');
 
   const allTags = Array.from(new Set(mockCourses.flatMap(course => course.tags)));
 
@@ -38,7 +37,7 @@ export default function Home() {
     }
   });
 
-  const toggleTag = (tag: string) => {
+  const toggleTag = (tag) => {
     setSelectedTags(prev =>
       prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
     );

@@ -1,23 +1,14 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { User } from '@/types';
 
-interface AuthState {
-  user: User | null;
-  isAuthenticated: boolean;
-  login: (email: string, password: string, role: 'learner' | 'creator') => Promise<void>;
-  signup: (email: string, password: string, name: string, role: 'learner' | 'creator') => Promise<void>;
-  logout: () => void;
-}
-
-export const useAuthStore = create<AuthState>()(
+export const useAuthStore = create(
   persist(
     (set) => ({
       user: null,
       isAuthenticated: false,
-      login: async (email: string, password: string, role: 'learner' | 'creator') => {
+      login: async (email, password, role) => {
         // Mock login - in real app, call API
-        const mockUser: User = {
+        const mockUser = {
           id: Math.random().toString(36).substr(2, 9),
           email,
           name: email.split('@')[0],
@@ -25,9 +16,9 @@ export const useAuthStore = create<AuthState>()(
         };
         set({ user: mockUser, isAuthenticated: true });
       },
-      signup: async (email: string, password: string, name: string, role: 'learner' | 'creator') => {
+      signup: async (email, password, name, role) => {
         // Mock signup - in real app, call API
-        const mockUser: User = {
+        const mockUser = {
           id: Math.random().toString(36).substr(2, 9),
           email,
           name,

@@ -2,13 +2,8 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Star, Clock, Users } from 'lucide-react';
-import { Course } from '@/types';
 
-interface CourseCardProps {
-  course: Course;
-}
-
-export const CourseCard = ({ course }: CourseCardProps) => {
+export const CourseCard = ({ course }) => {
   const hours = Math.floor(course.totalDuration / 3600);
 
   return (
